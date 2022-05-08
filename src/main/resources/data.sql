@@ -7,3 +7,5 @@ INSERT INTO unit_of_measure(uom) VALUES ('Cup');
 INSERT INTO unit_of_measure(uom) VALUES ('Pinch');
 INSERT INTO unit_of_measure(uom) VALUES ('Teaspoon');
 INSERT INTO unit_of_measure(uom) VALUES ('Tablespoon');
+INSERT INTO unit_of_measure(uom) VALUES ('Ripe');
+INSERT INTO unit_of_measure(uom) VALUES ('Serrano');

@@ -1,10 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Recipe App</title>
 </head>
 <body>
-<h1>Hello there!</h1>
+<h1 th:text="'Description: ' + ${description}"></h1>
+<div>
+    <p th:text="'Notes: '+${notes.getDescription()}"></p>
+    <p>Ingredients</p>
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Description</th>
+            <th>Amount</th>
+            <th>Unit of measure</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="ingredient : ${ingredients}">
+            <td th:text="${ingredient.getId()}"></td>
+            <td th:text="${ingredient.getDescription()}"></td>
+            <td th:text="${ingredient.getAmount()}"></td>
+            <td th:text="${ingredient.getUnitOfMeasure().getUom()}"></td>
+        </tr>
+        </tbody>
+    </table>
+    <p th:text="'Difficulty: ' + ${difficulty}"></p>
+    <ul>
+        <li th:each="category : ${categories}" th:text="${category.getName()}"></li>
+    </ul>
+</div>
 </body>
 </html>
