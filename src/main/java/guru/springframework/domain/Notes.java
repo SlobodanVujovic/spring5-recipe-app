@@ -9,6 +9,8 @@ public class Notes {
     private Long id;
     @Lob
     private String description;
+    @OneToOne(mappedBy = "notes")
+    private Recipe recipe;
 
     public Long getId() {
         return id;
@@ -24,5 +26,13 @@ public class Notes {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Recipe getRecipe() {
+        return recipe;
+    }
+
+    public void setRecipe(Recipe recipe) {
+        this.recipe = recipe;
     }
 }
