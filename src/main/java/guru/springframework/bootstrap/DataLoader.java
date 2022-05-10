@@ -7,6 +7,7 @@ import guru.springframework.repositories.UnitOfMeasureRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
 import java.util.Optional;
@@ -26,6 +27,7 @@ public class DataLoader implements CommandLineRunner {
     }
 
     @Override
+    @Transactional
     public void run(String... args) throws Exception {
         Recipe guacamole = new Recipe();
         guacamole.setDescription("The best guacamole");
@@ -66,11 +68,9 @@ public class DataLoader implements CommandLineRunner {
         Optional<Category> mexican = categoryRepository.findByName("Mexican");
 
         guacamole.getCategories().add(mexican.get());
+        mexican.get().getRecipes().add(guacamole);
 
         recipeRepository.save(guacamole);
-
-//        mexican.get().getRecipes().add(guacamole);
-
 
         log.debug("************************ Done");
     }
