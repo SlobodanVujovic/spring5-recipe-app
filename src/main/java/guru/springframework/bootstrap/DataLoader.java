@@ -4,12 +4,14 @@ import guru.springframework.domain.*;
 import guru.springframework.repositories.CategoryRepository;
 import guru.springframework.repositories.RecipeRepository;
 import guru.springframework.repositories.UnitOfMeasureRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
 import java.util.Optional;
 
+@Slf4j
 @Component
 public class DataLoader implements CommandLineRunner {
     private final UnitOfMeasureRepository unitOfMeasureRepository;
@@ -70,6 +72,6 @@ public class DataLoader implements CommandLineRunner {
 //        mexican.get().getRecipes().add(guacamole);
 
 
-        System.out.println("************************ Done");
+        log.debug("************************ Done");
     }
 }
