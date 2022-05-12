@@ -54,12 +54,12 @@ public class IndexControllerTest {
         verify(model, times(5)).addAttribute(any(), any());
     }
 
-    @Test
-    public void testMockMvc() throws Exception {
-        MockMvc mockMvc = MockMvcBuilders.standaloneSetup(indexController).build();
-
-        mockMvc.perform(MockMvcRequestBuilders.get("/"))
-                .andExpect(MockMvcResultMatchers.status().isOk())
-                .andExpect(MockMvcResultMatchers.view().name("index"));
-    }
+//    @Test
+//    public void testMockMvc() throws Exception {
+//        MockMvc mockMvc = MockMvcBuilders.standaloneSetup(indexController).build();
+//
+//        mockMvc.perform(MockMvcRequestBuilders.get("/"))
+//                .andExpect(MockMvcResultMatchers.status().isOk())
+//                .andExpect(MockMvcResultMatchers.view().name("index"));
+//    }
 }
